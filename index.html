@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meesho SKU Label Counter</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <section class="card">
+      <h1>Meesho SKU Label Counter</h1>
+      <p class="subtitle">PDF upload karo → SKU-wise total labels automatically count ho jayenge.</p>
+
+      <label class="upload-box" for="pdfFile">
+        <span class="upload-icon">📄</span>
+        <strong>Meesho Label PDF Select Karo</strong>
+        <small>Sirf PDF file</small>
+      </label>
+      <input id="pdfFile" type="file" accept="application/pdf" hidden>
+
+      <div id="fileInfo" class="file-info hidden"></div>
+
+      <div class="actions">
+        <button id="countBtn" disabled>Count SKU Labels</button>
+        <button id="copyBtn" disabled class="secondary">Copy Result</button>
+        <button id="downloadBtn" disabled class="secondary">Download CSV</button>
+      </div>
+
+      <div id="status" class="status"></div>
+
+      <div id="resultArea" class="hidden">
+        <div class="summary">
+          <div><span id="totalLabels">0</span><small>Total Labels</small></div>
+          <div><span id="totalSkus">0</span><small>Unique SKUs</small></div>
+        </div>
+
+        <h2>SKU ID = Total Labels</h2>
+        <pre id="plainResult"></pre>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>SKU ID</th><th>Total Labels</th></tr></thead>
+            <tbody id="resultBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.min.mjs" type="module"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
