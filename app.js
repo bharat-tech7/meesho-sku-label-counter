@@ -50,7 +50,7 @@ function extractSKU(text) {
     .replace(/^.*?Product Details\s+SKU\s+Size\s+Qty\s+Color\s+Order No\.?\s*/i, '');
 
   // SKU can contain spaces/commas. Size is one of common apparel sizes, followed by quantity.
-  const match = afterHeader.match(/^(.*?)\s+(XXS|XS|S|M|L|XL|XXL|3XL|4XL|5XL)\s+(\d+)\s+/i);
+  const match = afterHeader.match(/^(.*?)\s+(XXS|XS|S|M|L|XL|XXL|XXXL|4XL|5XL)\s+(\d+)\s+/i);
   return match ? cleanSKU(match[1]) : null;
 }
 
